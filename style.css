@@ -578,3 +578,93 @@ footer {
     color: #475569;
     line-height: 1.6;
 }
+
+/* ============================================================
+   CONFIGURAÇÕES PARA RESPONSIVIDADE 
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .projeto-conteudo, .projeto-conteudo.invertido {
+        grid-template-columns: 1fr; /* Transforma as colunas em linhas */
+        gap: 30px;
+        text-align: center;
+    }
+
+    .projeto-box {
+        padding: 30px;
+    }
+
+    .projeto-texto p {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajuste da Navbar */
+    .container-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .header {
+        height: auto; /* Deixa a barra crescer se o menu quebrar linha */
+    }
+
+    main {
+        margin-top: 160px; /* Evita que o conteúdo fique debaixo da navbar mobile */
+    }
+
+    /* Secção Sobre */
+    .sobre-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .sobre-foto {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    /* Ajuste das Grids (Interesses e Competências) */
+    .interesses-grid, .competencias-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    /* Ordem dos Projetos (Imagem sempre em cima no telemóvel) */
+    .projeto-conteudo.invertido {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .projeto-img {
+        order: -1; /* Força a imagem a subir */
+        max-width: 100%;
+    }
+
+    /* Botões para ocupar a largura toda no telemóvel */
+    .btn-vermais, .btn-download {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-left h1 {
+        font-size: 1.1rem;
+    }
+    
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+    }
+
+    .sobre-texto h2, #formacao h2, .projetos-titulo {
+        font-size: 1.6rem;
+    }
+}
