@@ -580,91 +580,91 @@ footer {
 }
 
 /* ============================================================
-   CONFIGURAÇÕES PARA RESPONSIVIDADE 
+   AJUSTE DE RESPONSIVIDADE 
    ============================================================ */
 
 @media (max-width: 1024px) {
     .projeto-conteudo, .projeto-conteudo.invertido {
-        grid-template-columns: 1fr; /* Transforma as colunas em linhas */
+        grid-template-columns: 1fr !important;
         gap: 30px;
         text-align: center;
     }
-
-    .projeto-box {
-        padding: 30px;
-    }
-
-    .projeto-texto p {
-        margin: 0 auto;
-    }
+    .projeto-box { padding: 30px; }
+    .projeto-texto p { margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
-    /* Ajuste da Navbar */
-    .container-header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 10px;
-    }
-    
+    /* 1. Header e Navbar - Resolve o problema de sobreposição */
     .header {
-        height: auto; /* Deixa a barra crescer se o menu quebrar linha */
+        height: auto !important;
+        position: relative !important; 
+        background-color: rgba(209, 213, 219, 1) !important;
+    }
+
+    .container-header {
+        flex-direction: column !important;
+        gap: 10px;
+        padding: 15px !important;
+    }
+
+    nav {
+        gap: 15px !important;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     main {
-        margin-top: 160px; /* Evita que o conteúdo fique debaixo da navbar mobile */
+        margin-top: 0 !important; 
     }
 
-    /* Secção Sobre */
+    /* 2. Sobre Mim - Corrige as margens e o alinhamento do teu print */
     .sobre-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 30px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 25px !important;
+        padding: 0 25px !important; /* Cria a margem lateral que faltava */
+        width: 100% !important;
     }
 
-    .sobre-foto {
-        max-width: 250px;
-        margin: 0 auto;
+    .sobre-foto img {
+        max-width: 260px !important;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 15px;
     }
 
-    /* Ajuste das Grids (Interesses e Competências) */
+    .sobre-texto {
+        width: 100% !important;
+    }
+
+    /* 3. Ajustes Gerais de Conteúdo */
     .interesses-grid, .competencias-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+        padding: 0 15px;
     }
 
-    /* Ordem dos Projetos (Imagem sempre em cima no telemóvel) */
     .projeto-conteudo.invertido {
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
     .projeto-img {
-        order: -1; /* Força a imagem a subir */
-        max-width: 100%;
+        order: -1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    /* Botões para ocupar a largura toda no telemóvel */
     .btn-vermais, .btn-download {
-        display: block;
-        width: 100%;
-        text-align: center;
+        display: inline-block !important;
+        width: 90% !important;
+        margin: 10px auto !important;
     }
 }
 
 @media (max-width: 480px) {
-    .header-left h1 {
-        font-size: 1.1rem;
-    }
-    
-    nav {
-        gap: 10px;
-    }
-
-    nav a {
-        font-size: 0.75rem;
-    }
-
-    .sobre-texto h2, #formacao h2, .projetos-titulo {
-        font-size: 1.6rem;
-    }
+    .header-left h1 { font-size: 1.1rem !important; }
+    nav a { font-size: 0.75rem !important; }
+    .sobre-texto h2, #formacao h2, .projetos-titulo { font-size: 1.6rem !important; }
 }
